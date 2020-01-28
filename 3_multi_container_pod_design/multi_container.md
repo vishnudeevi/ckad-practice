@@ -3,9 +3,12 @@
 ### Bookmark below links 
 * [pod design with samples](https://matthewpalmer.net/kubernetes-app-developer/articles/multi-container-pod-design-patterns.html)
 * [multi container from tasks](https://kubernetes.io/docs/tasks/access-application-cluster/communicate-containers-same-pod-shared-volume/#creating-a-pod-that-runs-two-containers)
-#### Create a pod with two busbox containers that would log 'Hello from container-1' and 'Hello from container-2' and sleep 3600
+* [ammbassdor pattern example](https://www.magalix.com/blog/kubernetes-patterns-the-ambassador-pattern)
+* [init containe pattern](https://www.magalix.com/blog/kubernetes-patterns-the-init-container-pattern)
+
+#### Create a pod with two busbox containers that would log date every 5 sec and date every 1 sec
 ```bash
-k run multipod --image=busybox --restart=Never --dry-run -o yaml -- /bin/sh -c 'while true; do date||'\multipod-container-1'\ >> /var/log/app.txt; sleep 5;done' > pod.yaml 
+k run multipod --image=busybox --restart=Never --dry-run -o yaml -- /bin/sh -c 'while true; do date >> /var/log/app1.txt; sleep 5;done' > pod.yaml 
 ```
 ```
 apiVersion: v1
