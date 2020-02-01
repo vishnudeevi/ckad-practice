@@ -31,3 +31,21 @@ k run cronjob --image=nginx --labels=exam=ckad --restart=OnFailure --schedule="*
 ### To create a job 
 ```
 k run job --image=nginx --labels=exam=ckad --restart=OnFailure -- /bin/bash -c 'echo Hello job'
+```
+#### To sort on a column and print only that column 
+```bash
+ k get po -o wide --no-headers|sort -k5 -r | awk '{print $5}' ## sorting on column 5 (-r to reverse) and printing only that column
+ k get po -o wide --no-headers|sort -k5 | awk '{print $5}' ## sorting on column 5 and printing only that column
+ k get po -o wide --no-headers|sort -k5 |head -1| awk '{print $5}' ## sorting on column 5 and printing only that column and first one
+``` 
+
+#### get the container level metrics of a ngix pod having multiple containers
+```bash
+kubectl top pod nginx --containers
+```
+
+#### sort the events by creationtimestamp and write them to a file 
+```bash
+kubectl get events --sort-by=.metadata.creationTimestamp > events.txt
+kubectl get events -o wide |grep <podname> > pod_events_wide.txt 
+```
