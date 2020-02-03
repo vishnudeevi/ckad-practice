@@ -49,3 +49,5 @@ kubectl top pod nginx --containers
 kubectl get events --sort-by=.metadata.creationTimestamp > events.txt
 kubectl get events -o wide |grep <podname> > pod_events_wide.txt 
 ```
+#### Exam tip use bookmarks on your bookmark bar to quickly navigate from one topic to other 
+### I have included my bookmarks in bookmark section for your reference
